@@ -1,4 +1,4 @@
-# vue_mobile_news_app
+# vue-mobile-newsapp
 
 ## Project setup
 ```
