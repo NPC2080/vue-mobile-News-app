@@ -112,7 +112,7 @@ export default {
       }
     },
 
-    async deleteChannel(channel, index) {
+    async deleteChannel(index) {
       //若删除激活频道之前的频道
       if (index <= this.active) {
         this.$emit("update-active", this.active - 1);

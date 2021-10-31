@@ -1,5 +1,7 @@
 <template>
-  <div class="search-suggestion"></div>
+  <div class="search-suggestion">
+    <van-cell icon="search" title="hahaha"></van-cell>
+  </div>
 </template>
 
 <script>

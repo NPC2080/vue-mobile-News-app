@@ -8,34 +8,45 @@
         show-action
         @search="onSearch"
         @cancel="$router.back()"
+        @focus="isResultShow = false"
       >
       </van-search>
     </form>
 
+    <!-- 搜索结果 -->
+    <search-result v-if="isResultShow"></search-result>
+
     <!-- 联想提示 -->
-    <search-suggestion></search-suggestion>
+    <search-suggestion
+      v-else-if="searchText"
+      :search-text="searchText"
+    ></search-suggestion>
 
     <!-- 历史记录 -->
-    <search-history></search-history>
-
-    <!-- 搜索结果 -->
+    <search-history v-else></search-history>
   </div>
 </template>
 
 <script>
 import SearchHistory from "./components/search-history.vue";
+import SearchResult from "./components/search-result.vue";
 import SearchSuggestion from "./components/search-suggestion.vue";
 export default {
   name: "Search",
-  components: { SearchSuggestion, SearchHistory },
+  components: { SearchSuggestion, SearchHistory, SearchResult },
   props: {},
   data() {
-    return { searchText: "" };
+    return {
+      searchText: "",
+      isResultShow: false,
+    };
   },
   computed: {},
   watch: {},
   methods: {
-    onSearch() {},
+    onSearch() {
+      this.isResultShow = true;
+    },
   },
   created() {},
   mounted() {},
