@@ -154,6 +154,16 @@ app.get("/getarticles", (req, res) => {
   }
 });
 
+app.get("/getsearchsuggestions", (req, res) => {
+  res.send([
+    { id: 1, name: req.query.q + "--1st" },
+    { id: 2, name: req.query.q + "--2nd" },
+    { id: 3, name: req.query.q + "--3rd" },
+    { id: 4, name: req.query.q + "--4th" },
+    { id: 5, name: req.query.q + "--5th" },
+  ]);
+});
+
 app.listen(3000, "127.0.0.1", () => {
   console.log("server running at http://127.0.0.1:3000");
 });
